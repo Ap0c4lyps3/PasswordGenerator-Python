@@ -8,11 +8,11 @@ lowercase_chars = string.ascii_lowercase
 uppercase_chars = string.ascii_uppercase
 digits = string.digits
 symbols = '+_)(*&^%$#@!'
+password = ""
 
 # Ensure at least 3 uppercase characters
 uppercase_count = 0
-password = ""
-while uppercase_count < 3:
+while uppercase_count < 2:
     password += random.choice(uppercase_chars)
     uppercase_count += 1
 
@@ -24,12 +24,11 @@ while symbol_count < 2:
 
 # Fill the remaining characters with a mix of lowercase, digits, and symbols
 remaining_length = 16 - (uppercase_count + symbol_count)
-for _ in range(remaining_length):
-    password += random.choice(lowercase_chars + digits + symbols)
+for i in range(remaining_length):
+    password += random.choice(lowercase_chars)
 
-# Shuffle the password characters to make it more random
+# shuffle the password
 password_list = list(password)
 random.shuffle(password_list)
-password = ''.join(password_list)
 
-print(password)
+print(*password_list)
