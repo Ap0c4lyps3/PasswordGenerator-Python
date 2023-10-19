@@ -33,16 +33,6 @@ entry1.pack(pady=12, padx=10)
 #create password box
 entry2 = ctk.CTkEntry(master=frame, placeholder_text="Enter your Password", show="*")
 entry2.pack(pady=12, padx=10)
-try:
-    with open('passwords.txt', 'a') as f:
-        # Get the text from the entries and write to the file
-        f.write(entry1.get() + "|" + entry2.get() + "\n")
-        print("Successfully added to the system")
-except Exception as e:
-    print("An error has occurred")
-finally:
-    # This block will always execute, close the file if it's open
-    f.close()
 
 #create remember me checkbox
 checkbox = ctk.CTkCheckBox(master=frame, text="Remember Me", command=rememberUser)
